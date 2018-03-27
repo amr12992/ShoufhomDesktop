@@ -1,1 +1,3 @@
 # ShoufhomDesktop
+
+At the moment it's just a couple templates but hopefully we'll get somewhere...
