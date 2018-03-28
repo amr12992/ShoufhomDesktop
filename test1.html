@@ -1,236 +1,237 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
-  <!-- Custom styles for this template -->
-  <link href="css/offcanvas.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/offcanvas.css" rel="stylesheet">
 
 
-  <link rel="stylesheet" href="css/shieldui.min.css">
+    <link rel="stylesheet" href="css/shieldui.min.css">
 
-  <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
 
-  <style>
-  h1, th {
-    text-align: center;
-  }
+    <style>
+    h1, th {
+        text-align: center;
+    }
 
-  .sui-gridheader .sui-headercell {
-    text-align: center;
-  }
+    .sui-gridheader .sui-headercell {
+        text-align: center;
+    }
 
-  .sui-grid-core {
-    font-family: Arial, sans-serif;
-  }
+    .sui-grid-core {
+        font-family: Arial, sans-serif;
+    }
 
-  .sui-button-cell {
-    text-align: center;
-  }
+    .sui-button-cell {
+        text-align: center;
+    }
 
-  .sui-checkbox {
-    font-size: 17px !important;
-    padding-bottom: 4px !important;
-  }
+    .sui-checkbox {
+        font-size: 17px !important;
+        padding-bottom: 4px !important;
+    }
 
-  .deleteButton img {
-    margin-right: 3px;
-    vertical-align: bottom;
-  }
+    .deleteButton img {
+        margin-right: 3px;
+        vertical-align: bottom;
+    }
 
-  .bigicon {
-    color: #5CB85C;
-    font-size: 20px;
-  }
+    .bigicon {
+        color: #5CB85C;
+        font-size: 20px;
+    }
 
-  .p {
-    text-align: center;
-  }
-  </style>
+    .p {
+        text-align: center;
+    }
 
-  <title>Hello, world!</title>
+    </style>
+
+    <title>Hello, world!</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Offcanvas navbar</a>
-    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Offcanvas navbar</a>
+        <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Notifications</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Switch account</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
-
-  <main role="main" class="container">
-    <div class="col-md-12">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="text-center">Bootstrap Editable jQuery Grid
-            <span class="fa fa-edit pull-right bigicon"></span></h4>
-          </div>
-          <div class="panel-body text-center">
-            <div id="grid"></div>
-          </div>
+        <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Notifications</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Switch account</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
-      </div>
-    </main>
+    </nav>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')</script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/holder.min.js"></script>
-    <script src="js/offcanvas.js"></script>
-    <script src="js/shield-ui-lite.js"></script>
-    <script src="js/grid-data.js"></script>
+    <main role="main" class="container">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="text-center">Bootstrap Editable jQuery Grid
+                        <span class="fa fa-edit pull-right bigicon"></span></h4>
+                    </div>
+                    <div class="panel-body text-center">
+                        <div id="grid"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
 
-    <script>
-    $(document).ready(function() {
-      $("#grid").shieldGrid({
-        dataSource: {
-          data: gridData,
-          schema: {
-            fields: {
-              id: {
-                path: "id",
-                type: Number
-              },
-              age: {
-                path: "age",
-                type: Number
-              },
-              name: {
-                path: "name",
-                type: String
-              },
-              company: {
-                path: "company",
-                type: String
-              },
-              month: {
-                path: "month",
-                type: Date
-              },
-              isActive: {
-                path: "isActive",
-                type: Boolean
-              },
-              email: {
-                path: "email",
-                type: String
-              },
-              transport: {
-                path: "transport",
-                type: String
-              }
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="js/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')</script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/holder.min.js"></script>
+        <script src="js/offcanvas.js"></script>
+        <script src="js/shield-ui-lite.js"></script>
+        <script src="js/grid-data.js"></script>
+
+        <script>
+        $(document).ready(function() {
+            $("#grid").shieldGrid({
+                dataSource: {
+                    data: gridData,
+                    schema: {
+                        fields: {
+                            id: {
+                                path: "id",
+                                type: Number
+                            },
+                            age: {
+                                path: "age",
+                                type: Number
+                            },
+                            name: {
+                                path: "name",
+                                type: String
+                            },
+                            company: {
+                                path: "company",
+                                type: String
+                            },
+                            month: {
+                                path: "month",
+                                type: Date
+                            },
+                            isActive: {
+                                path: "isActive",
+                                type: Boolean
+                            },
+                            email: {
+                                path: "email",
+                                type: String
+                            },
+                            transport: {
+                                path: "transport",
+                                type: String
+                            }
+                        }
+                    }
+                },
+                paging: {
+                    pageSize: 4,
+                },
+                events: {
+                    save: function(e) {
+                        var grid = $("#grid").swidget();
+                        console.log(grid.select);
+                    }
+                },
+                rowHover: false,
+                columns: [{
+                    field: "name",
+                    title: "Person Name",
+                    width: "120px"
+                }, {
+                    field: "age",
+                    title: "Age",
+                    width: "80px"
+                }, {
+                    field: "company",
+                    title: "Company Name"
+                }, {
+                    field: "month",
+                    title: "Date of Birth",
+                    format: "{0:MM/dd/yyyy}",
+                    width: "120px"
+                }, {
+                    field: "isActive",
+                    title: "Active"
+                }, {
+                    field: "email",
+                    title: "Email Address",
+                    width: "250px"
+                }, {
+                    field: "transport",
+                    title: "Custom Editor",
+                    width: "120px",
+                    editor: myCustomEditor
+                }, {
+                    width: "150px",
+                    title: "Options",
+                    buttons: [{ commandName: "edit", caption: "Edit" },
+                    { commandName: "delete", caption: "Delete" }
+                ]
+            }],
+            editing: {
+                enabled: true,
+                type: "cell",
+                mode: "form",
+                confirmation: {
+                    "delete": {
+                        enabled: true,
+                        template: function(item) {
+                            return "Delete row with ID = " + item.id
+                        }
+                    }
+                }
             }
-          }
-        },
-        paging: {
-          pageSize: 4,
-        },
-        events: {
-          save: function(e) {
-            var grid = $("#grid").swidget();
-            console.log(grid.select);
-          }
-        },
-        rowHover: false,
-        columns: [{
-          field: "name",
-          title: "Person Name",
-          width: "120px"
-        }, {
-          field: "age",
-          title: "Age",
-          width: "80px"
-        }, {
-          field: "company",
-          title: "Company Name"
-        }, {
-          field: "month",
-          title: "Date of Birth",
-          format: "{0:MM/dd/yyyy}",
-          width: "120px"
-        }, {
-          field: "isActive",
-          title: "Active"
-        }, {
-          field: "email",
-          title: "Email Address",
-          width: "250px"
-        }, {
-          field: "transport",
-          title: "Custom Editor",
-          width: "120px",
-          editor: myCustomEditor
-        }, {
-          width: "150px",
-          title: "Options",
-          buttons: [{ commandName: "edit", caption: "Edit" },
-          { commandName: "delete", caption: "Delete" }
-        ]
-      }],
-      editing: {
-        enabled: true,
-        type: "cell",
-        mode: "form",
-        confirmation: {
-          "delete": {
-            enabled: true,
-            template: function(item) {
-              return "Delete row with ID = " + item.id
-            }
-          }
+        });
+
+        function myCustomEditor(cell, item) {
+            $('<div id="dropdown"/>')
+            .appendTo(cell)
+            .shieldDropDown({
+                dataSource: {
+                    data: ["motorbike", "car", "truck"]
+                },
+                value: !item["transport"] ? null : item["transport"].toString()
+            }).swidget().focus();
         }
-      }
     });
-
-    function myCustomEditor(cell, item) {
-      $('<div id="dropdown"/>')
-      .appendTo(cell)
-      .shieldDropDown({
-        dataSource: {
-          data: ["motorbike", "car", "truck"]
-        },
-        value: !item["transport"] ? null : item["transport"].toString()
-      }).swidget().focus();
-    }
-  });
-  </script>
+    </script>
 </body>
 </html>
