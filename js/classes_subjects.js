@@ -13,24 +13,24 @@ $(document).ready(function() {
                 },
                 modify: {
                     create: {
-                        url: SERVER_URL + "/editstudents",
+                        url: SERVER_URL + "/addClass",
                         type: "post",
                         data: function (edited) {
-                            return edited;
+                            return edited[0].data;
                         }
                     },
                     update: {
-                        url: SERVER_URL + "/editstudents",
+                        url: SERVER_URL + "/modifyClass",
                         type: "post",
                         data: function (edited) {
                             return edited[0].data;
                         }
                     },
                     remove: {
-                        url: SERVER_URL + "/removestudent",
+                        url: SERVER_URL + "/deleteClass",
                         type: "post",
                         data: function (removed) {
-                            return { ID: removed[0].data.studentID };
+                            return removed[0].data;
                         }
                     }
                 }
@@ -39,8 +39,8 @@ $(document).ready(function() {
                 fields: {
                     gradeLevel: { path: "gradeLevel", type: String },
                     classNumber: { path: "classNumber", type: String },
-                    termYear: { path: "termYear", type: String },
-                    classID: { path: "classID", type: String },
+                    termYear: { path: "termYear" },
+                    classID: { path: "classID" },
                 }
             }
         },
@@ -53,22 +53,18 @@ $(document).ready(function() {
         rowHover: false,
         columns: [{
             field: "classID",
-            title: "Class ID",
-            width: "60px"
+            title: "Class ID"
         }, {
             field: "termYear",
-            title: "Year",
-            width: "60px"
+            title: "Year"
         }, {
             field: "gradeLevel",
-            title: "Class level",
-            width: "60px"
+            title: "Class level"
         }, {
             field: "classNumber",
-            title: "Section",
-            width: "60px"
+            title: "Section"
         }, {
-            width: "60px",
+            width: "140px",
             title: "Options",
             buttons: [{ commandName: "edit", caption: "Edit" },
             { commandName: "delete", caption: "Delete" }
@@ -82,7 +78,7 @@ $(document).ready(function() {
             "delete": {
                 enabled: true,
                 template: function(item) {
-                    return "Delete student ID " + item.studentID
+                    return "Delete class ID " + item.classID
                 }
             }
         }
@@ -113,24 +109,26 @@ function subjects(e) {
                 },
                 modify: {
                     create: {
-                        url: SERVER_URL + "/editstudents",
+                        url: SERVER_URL + "/addSubject",
                         type: "post",
                         data: function (edited) {
-                            return edited;
+                            edited[0].data.classID = request.classID;
+                            return edited[0].data;
                         }
                     },
                     update: {
-                        url: SERVER_URL + "/editstudents",
+                        url: SERVER_URL + "/modifySubject",
                         type: "post",
                         data: function (edited) {
+                            edited[0].data.classID = request.classID;
                             return edited[0].data;
                         }
                     },
                     remove: {
-                        url: SERVER_URL + "/removestudent",
+                        url: SERVER_URL + "/deleteSubject",
                         type: "post",
                         data: function (removed) {
-                            return { ID: removed[0].data.studentID };
+                            return removed[0].data;
                         }
                     }
                 }
@@ -138,11 +136,12 @@ function subjects(e) {
             schema: {
                 fields: {
                     subjectName: { path: "subjectName", type: String },
-                    subjectID: { path: "subjectID", type: String },
+                    subjectID: { path: "subjectID" },
                     subjectType: { path: "subjectType", type: String },
-                    fName: { path: "fName", type: String },
-                    mName: { path: "mName", type: String },
-                    lName: { path: "lName", type: String },
+                    teacherID: { path: "userID", type: String },
+                    fName: { path: "fName" },
+                    mName: { path: "mName" },
+                    lName: { path: "lName" },
                 }
             },
             sorting: {
@@ -158,26 +157,24 @@ function subjects(e) {
         rowHover: false,
         columns: [{
             field: "subjectID",
-            title: "Subject ID",
-            width: "60px"
+            title: "Subject ID"
         }, {
             field: "subjectName",
-            title: "Subject Name",
-            width: "60px"
+            title: "Subject Name"
         }, {
             field: "subjectType",
             title: "Subject Type",
-            width: "60px"
+        }, {
+            field: "teacherID",
+            title: "Teacher ID",
         }, {
             field: "fName",
-            title: "Teacher First Name",
-            width: "60px"
+            title: "Teacher First Name"
         }, {
             field: "lName",
-            title: "Teacher Last Name",
-            width: "60px"
+            title: "Teacher Last Name"
         }, {
-            width: "60px",
+            width: "150px",
             title: "Options",
             buttons: [{ commandName: "edit", caption: "Edit" },
             { commandName: "delete", caption: "Delete" }
@@ -191,7 +188,7 @@ function subjects(e) {
             "delete": {
                 enabled: true,
                 template: function(item) {
-                    return "Delete student ID " + item.studentID
+                    return "Delete subject ID " + item.subjectID
                 }
             }
         }
@@ -222,25 +219,16 @@ function examTimes(e) {
                     }
                 },
                 modify: {
-                    create: {
-                        url: SERVER_URL + "/editstudents",
-                        type: "post",
-                        data: function (edited) {
-                            return edited;
-                        }
-                    },
                     update: {
-                        url: SERVER_URL + "",
+                        url: SERVER_URL + "/modifySubjectExams",
                         type: "post",
                         data: function (edited) {
-                            console.log(edited[0].data);
-                        }
-                    },
-                    remove: {
-                        url: SERVER_URL + "/removestudent",
-                        type: "post",
-                        data: function (removed) {
-                            return { ID: removed[0].data.studentID };
+                            var data = edited[0].data;
+                            return {
+                              subjectID: data.subjectID,
+                              dateTime: data.date + ' ' + data.time,
+                              exam: data.exam
+                            };
                         }
                     }
                 }
@@ -250,6 +238,7 @@ function examTimes(e) {
                     subjectID: { path: "subjectID", type: String },
                     date: { path: "date", type: String },
                     time: { path: "time", type: String },
+                    exam: { path: "exam" }
                 }
             }
         },
@@ -258,29 +247,19 @@ function examTimes(e) {
         rowHover: false,
         columns: [{
             field: "date",
-            title: "Date",
-            width: "60px"
+            title: "Date"
         }, {
             field: "time",
-            title: "Time",
-            width: "60px"
+            title: "Time"
         }, {
-            width: "60px",
+            width: "80px",
             title: "Options",
             buttons: [{ commandName: "edit", caption: "Edit" }]
         }],
         editing: {
             enabled: true,
             type: "cell",
-            mode: "form",
-            confirmation: {
-                "delete": {
-                    enabled: true,
-                    template: function(item) {
-                        return "Delete student ID " + item.studentID
-                    }
-                }
-            }
+            mode: "form"
         }
     });
 }
