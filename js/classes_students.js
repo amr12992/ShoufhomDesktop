@@ -1,9 +1,6 @@
 var SERVER_URL = "http://ShoufhomNode-iam688687.codeanyapp.com:3000"
 
 $(document).ready(function() {
-    $("#datetimepicker").shieldDateTimePicker({
-
-    });
     $("#grid").shieldGrid({
         dataSource: {
             remote: {
