@@ -5,39 +5,27 @@ $(document).ready(function() {
         dataSource: {
             remote: {
                 read: {
-                    url: SERVER_URL + "/getClasses",
+                    url: SERVER_URL + "/readusers",
                     type: "post"
                 },
                 modify: {
-                    create: {
-                        url: SERVER_URL + "/addClass",
-                        type: "post",
-                        data: function (edited) {
-                            return edited[0].data;
-                        }
-                    },
                     update: {
-                        url: SERVER_URL + "/modifyClass",
+                        url: SERVER_URL + "/modifyUserRole",
                         type: "post",
                         data: function (edited) {
                             return edited[0].data;
-                        }
-                    },
-                    remove: {
-                        url: SERVER_URL + "/deleteClass",
-                        type: "post",
-                        data: function (removed) {
-                            return removed[0].data;
                         }
                     }
                 }
             },
             schema: {
                 fields: {
-                    gradeLevel: { path: "gradeLevel", type: String },
-                    classNumber: { path: "classNumber", type: String },
-                    termYear: { path: "termYear" },
-                    classID: { path: "classID" },
+                    civilID: { path: "civilID" },
+                    userID: { path: "userID" },
+                    fName: { path: "fName" },
+                    mName: { path: "mName" },
+					lName: { path: "lName" },
+					userRole: { path: "userRole", type: String },
                 }
             }
         },
@@ -45,21 +33,31 @@ $(document).ready(function() {
             pageSize: 20,
         },
         events: {
-            detailCreated: subjects
+            getCustomEditorValue: function (e) {
+                e.value = $("#dropdown").swidget().value();
+                $("#dropdown").swidget().destroy();
+            }
         },
         rowHover: false,
         columns: [{
-            field: "classID",
-            title: "Class ID"
+            field: "civilID",
+            title: "Civil ID"
         }, {
-            field: "termYear",
-            title: "Year"
+            field: "userID",
+            title: "User ID"
         }, {
-            field: "gradeLevel",
-            title: "Class level"
+            field: "fName",
+            title: "First name"
         }, {
-            field: "classNumber",
-            title: "Section"
+            field: "mName",
+            title: "Middle name"
+        }, {
+            field: "lName",
+            title: "Last name"
+        }, {
+            field: "userRole",
+            title: "User Role",
+			editor: userRoles
         }, {
             width: "140px",
             title: "Options",
@@ -267,14 +265,14 @@ function timePicker(cell, item) {
     .shieldDateTimePicker().swidget().focus();
 }
 
-function myCustomEditor(cell, item) {
+function userRoles(cell, item) {
     $('<div id="dropdown"/>')
     .appendTo(cell)
     .shieldDropDown({
         dataSource: {
-            data: ["motorbike", "car", "truck"]
+            data: ["Guardian", "Teacher", "Counsellor"]
         },
-        value: !item["transport"] ? null : item["transport"].toString()
+        value: !item["userRole"] ? null : item["userRole"].toString()
     }).swidget().focus();
 }
 });

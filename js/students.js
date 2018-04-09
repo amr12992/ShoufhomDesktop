@@ -28,10 +28,10 @@ $(document).ready(function() {
             schema: {
                 fields: {
                     civilID: { path: "civilID", type: String },
-                    studentID: { path: "studentID", type: String },
-                    fNameID: { path: "fNameID", type: String },
-                    mNameID: { path: "mNameID", type: String },
-                    lNameID: { path: "lNameID", type: String },
+                    studentID: { path: "studentID" },
+                    fName: { path: "fNameID", type: String },
+                    mName: { path: "mNameID", type: String },
+                    lName: { path: "lNameID", type: String },
                     guardianCivilID: { path: "guardianCivilID", type: String },
                     activeFlag: { path: "activeFlag", type: Boolean }
                 }
@@ -68,8 +68,7 @@ $(document).ready(function() {
         }, {
             //width: "140px",
             title: "Options",
-            buttons: [{ commandName: "edit", caption: "Edit" },
-            { commandName: "delete", caption: "Delete" }
+            buttons: [{ commandName: "edit", caption: "Edit" }
         ]
     }],
     editing: {
@@ -80,7 +79,7 @@ $(document).ready(function() {
             "delete": {
                 enabled: true,
                 template: function(item) {
-                    return "Delete class ID " + item.classID
+                    return "Delete student ID " + item.classID
                 }
             }
         }
@@ -88,7 +87,7 @@ $(document).ready(function() {
     toolbar: [
         {
             buttons: [
-                { commandName: "insert", caption: "Add class" }
+                { commandName: "insert", caption: "Add student" }
             ],
             position: "top"
         }
