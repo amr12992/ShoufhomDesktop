@@ -5,29 +5,15 @@ $(document).ready(function() {
         dataSource: {
             remote: {
                 read: {
-                    url: SERVER_URL + "/getClasses",
+                    url: SERVER_URL + "/readterms",
                     type: "post"
                 },
                 modify: {
                     create: {
-                        url: SERVER_URL + "/addClass",
+                        url: SERVER_URL + "/createnewterm",
                         type: "post",
                         data: function (edited) {
                             return edited[0].data;
-                        }
-                    },
-                    update: {
-                        url: SERVER_URL + "/modifyClass",
-                        type: "post",
-                        data: function (edited) {
-                            return edited[0].data;
-                        }
-                    },
-                    remove: {
-                        url: SERVER_URL + "/deleteClass",
-                        type: "post",
-                        data: function (removed) {
-                            return removed[0].data;
                         }
                     }
                 }
@@ -45,21 +31,12 @@ $(document).ready(function() {
             pageSize: 20,
         },
         events: {
-            detailCreated: subjects
+            
         },
         rowHover: false,
         columns: [{
             field: "classID",
             title: "Class ID"
-        }, {
-            field: "termYear",
-            title: "Year"
-        }, {
-            field: "gradeLevel",
-            title: "Class level"
-        }, {
-            field: "classNumber",
-            title: "Section"
         }, {
             width: "140px",
             title: "Options",
