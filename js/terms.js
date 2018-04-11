@@ -38,7 +38,12 @@ $(document).ready(function() {
 
 function addNewTerm() {
     var confirmed = confirm("WARNING: Starting a new term will effectively archive ALL the data from the current term, meaning they cannot be altered anymore.\n\nProceed?");
+	var actually_confirmed = false;
+	
     if (confirmed)
+		actually_confirmed = confirm("LAST WARNING: THIS ACTION CANNOT BE UNDONE");
+	
+	if (actually_confirmed)
         $.post(SERVER_URL + '/createNewTerm', function(data) {
             location.reload();
         });
