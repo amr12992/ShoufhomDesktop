@@ -77,15 +77,7 @@ $(document).ready(function() {
                 }
             }
         }
-    },
-    toolbar: [
-        {
-            buttons: [
-                { commandName: "insert", caption: "Add class" }
-            ],
-            position: "top"
-        }
-    ]
+    }
 });
 
 function subjects(e) {
